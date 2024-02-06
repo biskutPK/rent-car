@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Styles for the overlay background */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+            z-index: 1;
+        }
+
+        /* Styles for the pop-up container */
+        .popup {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        /* Style for the close button */
+        .close-button {
+            display: block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        /* Hidden checkbox */
+        #popup-toggle {
+            display: none;
+        }
+
+        /* Styling for the label (used for showing the popup) */
+        #popup-toggle + label {
+            cursor: pointer;
+        }
+
+        /* When the checkbox is checked, show the overlay and pop-up */
+        #popup-toggle:checked + .overlay {
+            display: block;
+        }
+
+        #popup-toggle:checked + .overlay + .popup {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hidden checkbox and label to trigger the pop-up -->
+<input type="checkbox" id="popup-toggle">
+<label for="popup-toggle">Click me</label>
+
+<!-- The overlay background -->
+<div class="overlay"></div>
+
+<!-- The pop-up container -->
+<div class="popup">
+    <p>Thank you for choosing our service.</p>
+    <a class="close-button" href="#" onclick="document.getElementById('popup-toggle').checked = false;">Close</a>
+</div>
+
+</body>
+</html>
